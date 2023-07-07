@@ -6,8 +6,21 @@ export function AddPokemonForm(props) {
         const { value } = target; 
         setText(value);
     }
-    const handleSubmit = (event) => { 
+    const handleSubmit = async (event) => { 
         event.preventDefault()
+        let pokemon = { 
+            name: text
+        }
+        let endpoint = new URL(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+        const response  = await fetch(endpoint)
+        const data = await response.json()
+        console.log(data);
+        pokemon["height"] = data["height"]; 
+        pokemon["weight"] = data["weight"];
+        pokemon["moves"] = [data["moves"][Math.floor(Math.random() * 100)]['move'], data["moves"][Math.floor(Math.random() * 100)]['move']];
+        pokemon["sprite"] = data["sprites"]['front_default'];
+        console.log(pokemon)
+        props.addPokemon(pokemon);
         setText("");
     }
     return (
