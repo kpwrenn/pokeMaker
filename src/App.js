@@ -15,7 +15,7 @@ function App() {
         <AddPokemonForm addPokemon={addPokemon}/> 
         <ul>
         {pokemon.map((p) => (
-            <Pokemon key={p.name} pokemon={p.name} sprite={p.sprite}/>
+            <Pokemon key={p.id} pokemon={p.name} sprite={p.sprite}/>
           ))}
         </ul>
       </header>
