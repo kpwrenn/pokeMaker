@@ -3,6 +3,7 @@ import "./AddPokemonForm.css"
 let id = 1;
 export function AddPokemonForm(props) { 
     const [text, setText] = useState(""); 
+    const [disabled, setDisabled] = useState(false);
     const handleTextChange = ({target}) => { 
         const { value } = target; 
         setText(value);
@@ -22,14 +23,15 @@ export function AddPokemonForm(props) {
         // console.log(data);
         pokemon["height"] = data["height"]; 
         pokemon["weight"] = data["weight"];
-        if (pokemon.name !== "ditto") {
+        if (response.moves) {
             pokemon["moves"] = [data["moves"][Math.floor(Math.random() * 100)]['move'], data["moves"][Math.floor(Math.random() * 100)]['move']];
         }
         pokemon["sprite"] = data["sprites"]['front_default'];
         pokemon["id"] = id++;
-        // console.log(pokemon)
+        console.log(pokemon)
         props.addPokemon(pokemon);
         setText("");
+        setDisabled(!disabled);
     }
     return (
         <div>
@@ -44,7 +46,7 @@ export function AddPokemonForm(props) {
                 placeholder="Add your favorite pokemon here!"
                 id="addPokemon"
             />
-            <input type="submit" value="Add"/>
+            <input type="submit" value="Add" disabled={disabled}/>
             </form>
         </div>
       );

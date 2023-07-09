@@ -12,12 +12,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <AddPokemonForm addPokemon={addPokemon}/> 
-        <ul>
-        {pokemon.map((p) => (
-            <Pokemon key={p.id} pokemon={p.name} sprite={p.sprite}/>
-          ))}
-        </ul>
+        <div id="#searchbar">
+          <AddPokemonForm addPokemon={addPokemon}/> 
+          <div id="holder">
+            <div>
+            {pokemon.map((p) => (
+                <Pokemon key={p.id} name={p.name} sprite={p.sprite} moves={p.moves} height={p.height} weight={p.weight}/>
+              ))}
+            </div>
+          </div>
+        </div>
       </header>
       <main>
         

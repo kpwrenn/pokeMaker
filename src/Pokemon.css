@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&display=swap');
+* { 
+    font-family: 'Agdasima', sans-serif;
+    box-sizing: border-box;
+}
+#container { 
+    border: 1px solid gold;
+    display: flex;  
+    /* border-radius: 5%; */
+   margin-top: 1em;
+} 
+#left { 
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid gold;
+    background-color: rgb(224, 36, 36);
+}
+#left div { 
+    padding: 0.25em 0.35em;
+}
+#right { 
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25em 0.35em;
+    border-left: 1px solid gold;
+    background-color: white;
+}
+#buttons { 
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin-top: 1em;
+}
+#buttons > button { 
+    margin: 1em;
+    padding: 1em;
+}
+#buttons > #x { 
+    margin-right: 0.5em;
+}

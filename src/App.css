@@ -39,3 +39,19 @@ h1 {
     transform: rotate(360deg);
   }
 }
+#searchbar { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#holder { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#holder > div { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
