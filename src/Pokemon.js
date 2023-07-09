@@ -7,6 +7,9 @@ export function Pokemon(props) {
           return (word.charAt(0).toUpperCase() + word.slice(1));
         }).join(' ');
       }
+    function handleTeamJoin() { 
+        props.addTeam(props.sprite);
+    }
     return (
     <>
         <div id="container">
@@ -20,10 +23,10 @@ export function Pokemon(props) {
             </div>
         </div>
         <div id="buttons">
-            <button>
+            <button onClick={handleTeamJoin}>
                 Add to my Team!
             </button>
-            <button id="x">
+            <button id="x" >
                 X
             </button>
         </div>
