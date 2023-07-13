@@ -48,22 +48,3 @@ h1 {
   justify-content: flex-end;
   align-items: flex-end;
 }
-.teamSlot { 
-  border: 1px solid white; 
-  border-radius: 5%; 
-  width: 3em; 
-  height: 3em;
-  margin: 1em;
-}
-#team div { 
-  width: 80px; 
-  display: flex;
-  align-items: center;
-  justify-items: center;
-}
-#team div img { 
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
-
-}

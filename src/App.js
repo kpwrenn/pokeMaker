@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { AddPokemonForm } from './AddPokemonForm';
+import { Team } from "./Team"
 import React, {useState, useEffect} from 'react'
 import ReactDOM from 'react-dom';
 import { Pokemon } from './Pokemon';
@@ -44,7 +45,7 @@ function App() {
         <div id="team">
        
         {team.map((p) => (
-                 <div className="teamSlot" key={teamNum++}><img src={p} alt=""></img></div>
+                 <Team teamNum={teamNum++} sprite={p.sprite} name={p.name}/>
               ))}
         </div>
       </main>

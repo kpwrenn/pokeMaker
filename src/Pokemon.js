@@ -8,7 +8,11 @@ export function Pokemon(props) {
         }).join(' ');
       }
     function handleTeamJoin() { 
-        props.addTeam(props.sprite);
+        let newMember = { 
+            name: props.name,
+            sprite: props.sprite
+        }
+        props.addTeam(newMember);
         cancelMember()
         // props.removeDisabled()
     }

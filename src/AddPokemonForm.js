@@ -1,6 +1,5 @@
 import React, {useState, useEffect } from "react";
 import "./AddPokemonForm.css"
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 let id = 1;
 export function AddPokemonForm(props) { 
     const [text, setText] = useState(""); 
