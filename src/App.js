@@ -30,6 +30,7 @@ function App() {
   }
   function removeTeamMember(pokemon) { 
     setTeam(prevTeam => prevTeam.filter((p) => p.name !== pokemon));
+    setTeamCounter(prevCounter => prevCounter - 1);
   }
   return (
     <div className="App">
