@@ -8,13 +8,18 @@ let teamNum = 0;
 function App() {
   const [pokemon, setPokemon] = useState([]); 
   const [team, setTeam] = useState([]);
+  const [teamCounter, setTeamCounter] = useState(0)
   const [disabled, setDisabled] = useState(false)
   function addPokemon(pokemon) { 
     setPokemon(prevPokemon => [pokemon, ...prevPokemon]);
   }
   function addTeam(pokemon) { 
+    if (teamCounter === 6) { 
+      alert("Your team is already Full!")
+      return;
+    }
     setTeam(prevTeam => [pokemon, ...prevTeam])
-    console.log(team)
+    setTeamCounter(prevCounter => prevCounter + 1);
   }
   function removePokemon(pokemon) { 
     setPokemon(prevPokemon => prevPokemon.filter((p) => p.name !== pokemon))
