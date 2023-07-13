@@ -8,6 +8,7 @@ let teamNum = 0;
 function App() {
   const [pokemon, setPokemon] = useState([]); 
   const [team, setTeam] = useState([]);
+  const [disabled, setDisabled] = useState(false)
   function addPokemon(pokemon) { 
     setPokemon(prevPokemon => [pokemon, ...prevPokemon]);
   }
@@ -15,15 +16,22 @@ function App() {
     setTeam(prevTeam => [pokemon, ...prevTeam])
     console.log(team)
   }
+  function removePokemon(pokemon) { 
+    setPokemon(prevPokemon => prevPokemon.filter((p) => p.name !== pokemon))
+  }
+  function changeStatus(boolean) { 
+    setDisabled(boolean)
+  }
+  
   return (
     <div className="App">
       <main>
         <div id="#searchbar">
-          <AddPokemonForm addPokemon={addPokemon} /> 
+          <AddPokemonForm addPokemon={addPokemon} disabled={disabled} changeStatus={changeStatus}/> 
           <div id="holder">
             <div>
             {pokemon.map((p) => (
-                 <Pokemon addTeam={addTeam} key={p.id} name={p.name} sprite={p.sprite} moves={p.moves} height={p.height} weight={p.weight}/>
+                 <Pokemon addTeam={addTeam} key={p.id} name={p.name} sprite={p.sprite} moves={p.moves} height={p.height} weight={p.weight} removePokemon={removePokemon} changeStatus={changeStatus}/>
               ))}
             </div>
           </div>

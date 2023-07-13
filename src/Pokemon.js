@@ -9,7 +9,15 @@ export function Pokemon(props) {
       }
     function handleTeamJoin() { 
         props.addTeam(props.sprite);
+        cancelMember()
+        // props.removeDisabled()
     }
+    function cancelMember() { 
+        props.removePokemon(props.name)
+        // props.removeDisabled()
+        props.changeStatus(false);
+    }
+
     return (
     <>
         <div id="container">
@@ -26,7 +34,7 @@ export function Pokemon(props) {
             <button onClick={handleTeamJoin}>
                 Add to my Team!
             </button>
-            <button id="x" >
+            <button id="x"onClick={cancelMember}>
                 X
             </button>
         </div>

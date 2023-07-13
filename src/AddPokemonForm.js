@@ -1,9 +1,10 @@
 import React, {useState, useEffect } from "react";
 import "./AddPokemonForm.css"
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 let id = 1;
 export function AddPokemonForm(props) { 
     const [text, setText] = useState(""); 
-    const [disabled, setDisabled] = useState(false);
+    // const [disabled, setDisabled] = useState(false);
     const handleTextChange = ({target}) => { 
         const { value } = target; 
         setText(value);
@@ -31,7 +32,7 @@ export function AddPokemonForm(props) {
         console.log(pokemon)
         props.addPokemon(pokemon);
         setText("");
-        setDisabled(!disabled);
+        props.changeStatus(true)
     }
     return (
         <div>
@@ -46,7 +47,8 @@ export function AddPokemonForm(props) {
                 placeholder="Add your favorite pokemon here!"
                 id="addPokemon"
             />
-            <input type="submit" value="Add" disabled={disabled}/>
+
+            <input type="submit" value="Add" disabled={props.disabled} />
             </form>
         </div>
       );
