@@ -28,7 +28,9 @@ function App() {
   function changeStatus(boolean) { 
     setDisabled(boolean)
   }
-  
+  function removeTeamMember(pokemon) { 
+    setTeam(prevTeam => prevTeam.filter((p) => p.name !== pokemon));
+  }
   return (
     <div className="App">
       <main>
@@ -45,7 +47,7 @@ function App() {
         <div id="team">
        
         {team.map((p) => (
-                 <Team teamNum={teamNum++} sprite={p.sprite} name={p.name}/>
+                 <Team teamNum={teamNum++} sprite={p.sprite} name={p.name} removeTeamMember={removeTeamMember}/>
               ))}
         </div>
       </main>
